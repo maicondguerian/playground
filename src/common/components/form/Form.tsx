@@ -1,16 +1,15 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { FormProvider } from "react-hook-form";
-import type { UseFormReturn } from "react-hook-form";
+import type { FieldValues, UseFormReturn } from "react-hook-form";
 
-export interface FormProps
+export interface FormProps<T extends FieldValues = FieldValues>
   extends React.DetailedHTMLProps<
     React.FormHTMLAttributes<HTMLFormElement>,
     HTMLFormElement
   > {
-  methods: UseFormReturn<any, any, undefined>;
+  methods: UseFormReturn<T>;
 }
 
-export const Form = ({ methods, ...props }: FormProps) => {
+export const Form = <T extends FieldValues = FieldValues>({ methods, ...props }: FormProps<T>) => {
   return (
     <FormProvider {...methods}>
       <form {...props} />
