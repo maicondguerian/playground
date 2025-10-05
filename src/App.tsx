@@ -1,5 +1,6 @@
+import { RouterPages } from "./core/routes";
 function App() {
-  return <>hello world</>;
+  return <RouterPages />;
 }
 
 export default App;
